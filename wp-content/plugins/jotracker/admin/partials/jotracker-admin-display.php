@@ -21,5 +21,7 @@ if (!current_user_can('manage_options')) {
 <div class="wrap">
     <h1>BACOT</h1>
     <p>Here is where the form would go if I actually had options.</p>
-
+    <?php foreach ($data as $datum):?>
+    <h4><?=$datum?></h4>
+    <?php endforeach;?>
 </div>

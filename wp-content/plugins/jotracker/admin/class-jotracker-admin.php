@@ -106,11 +106,15 @@ class Jotracker_Admin
 
     public function admin_menus()
     {
-        add_options_page('Jotracker', 'Jotracker', 'manage_options', 'jotracker-menu', [$this, 'my_plugin_options']);
+        add_menu_page('Jotracker', 'Jotracker', 'manage_options', 'jotracker-menu', [$this, 'my_plugin_options']);
     }
 
     public function my_plugin_options()
     {
-        require_once ('partials/jotracker-admin-display.php');
+        $data = ['bacot','bacot 2'];
+        ob_start();
+        $views = plugin_dir_path(__FILE__) . 'partials/jotracker-admin-display.php';
+        require_once($views);
+        $views = ob_get_contents();
     }
 }
