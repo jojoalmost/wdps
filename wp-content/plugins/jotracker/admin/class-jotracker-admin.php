@@ -113,7 +113,7 @@ class Jotracker_Admin
     {
         $data = ['bacot','bacot 2'];
         ob_start();
-        $views = plugin_dir_path(__FILE__) . 'partials/jotracker-admin-display.php';
+        $views = plugin_dir_path(__FILE__) . 'partials/tracker/index.php';
         require_once($views);
         $views = ob_get_contents();
     }
