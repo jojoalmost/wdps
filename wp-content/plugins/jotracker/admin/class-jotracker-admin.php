@@ -107,6 +107,7 @@ class Jotracker_Admin
     public function admin_menus()
     {
         add_menu_page('Jotracker', 'Jotracker', 'manage_options', 'jotracker-menu', [$this, 'my_plugin_options']);
+        add_submenu_page('jotracker-menu','Flow','Flow','manage_options','flow-submenu', [$this, 'flowIndex']);
     }
 
     public function my_plugin_options()
@@ -114,6 +115,14 @@ class Jotracker_Admin
         $data = ['bacot','bacot 2'];
         ob_start();
         $views = plugin_dir_path(__FILE__) . 'partials/tracker/index.php';
+        require_once($views);
+        $views = ob_get_contents();
+    }
+
+    public function flowIndex(){
+        $data = ['bacot','bacot 2'];
+        ob_start();
+        $views = plugin_dir_path(__FILE__) . 'partials/flow/index.php';
         require_once($views);
         $views = ob_get_contents();
     }
